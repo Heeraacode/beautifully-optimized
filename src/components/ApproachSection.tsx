@@ -1,5 +1,8 @@
 import { SectionHeader } from "./SectionHeader";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { ConnectingPath } from "./decorative/ConnectingPath";
+import { Sparkle } from "./decorative/Sparkle";
+import { SolidDot } from "./decorative/DottedCircle";
 
 const steps = [
   { num: "01", title: "Define ICP", note: '"vague = vague"' },
@@ -13,15 +16,26 @@ export const ApproachSection = () => {
   const ref = useScrollAnimation();
 
   return (
-    <section className="py-20 px-6 md:px-16">
-      <div className="max-w-[950px] mx-auto" ref={ref}>
+    <section className="relative py-20 px-6 md:px-16 overflow-hidden">
+      {/* Artistic decorations */}
+      <Sparkle className="top-[15%] right-[10%]" size="md" />
+      <Sparkle className="bottom-[20%] left-[5%]" size="sm" />
+      <SolidDot className="top-[30%] left-[8%]" />
+      <SolidDot className="bottom-[35%] right-[12%]" />
+      
+      <div className="max-w-[950px] mx-auto relative" ref={ref}>
         <SectionHeader number="04" label="Process" />
 
         <h2 className="font-serif text-2xl md:text-3xl font-normal mb-6 fade-up">
           How I Approach Growth
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-3">
+        {/* Connecting path between steps - visible on desktop */}
+        <div className="hidden md:block relative mb-4">
+          <ConnectingPath className="w-full h-12 top-0 left-0" />
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-3 relative">
           {steps.map((step, index) => (
             <div
               key={step.num}
@@ -41,6 +55,11 @@ export const ApproachSection = () => {
               </div>
             </div>
           ))}
+        </div>
+        
+        {/* Hand-drawn annotation */}
+        <div className="hidden md:block absolute -bottom-2 right-0 font-handwritten text-primary text-sm rotate-[-5deg]">
+          rinse & repeat ✦
         </div>
       </div>
     </section>

@@ -1,16 +1,34 @@
 import { SectionHeader } from "./SectionHeader";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { Sparkle, StarBurst } from "./decorative/Sparkle";
+import { DottedCircle, SolidDot } from "./decorative/DottedCircle";
+import { CurvedLine } from "./decorative/CurvedLine";
 
 export const ContactSection = () => {
   const ref = useScrollAnimation();
 
   return (
-    <section id="contact" className="bg-cream py-20 px-6 md:px-16">
+    <section id="contact" className="relative bg-cream py-20 px-6 md:px-16 overflow-hidden">
+      {/* Artistic decorations */}
+      <Sparkle className="top-[15%] right-[10%]" size="lg" />
+      <Sparkle className="bottom-[20%] left-[8%]" size="md" />
+      <StarBurst className="top-[10%] left-[15%] opacity-40" />
+      <DottedCircle className="bottom-[15%] right-[5%]" size="md" />
+      <SolidDot className="top-[30%] left-[5%]" />
+      <SolidDot className="bottom-[35%] right-[10%]" />
+      <CurvedLine className="w-32 h-24 top-[20%] right-[20%] opacity-30" variant="dashed" />
+
       <div
-        className="max-w-[750px] mx-auto grid grid-cols-1 md:grid-cols-[auto_1fr] gap-10 items-center"
+        className="max-w-[750px] mx-auto grid grid-cols-1 md:grid-cols-[auto_1fr] gap-10 items-center relative"
         ref={ref}
       >
-        <div className="w-[160px] h-[200px] md:w-[180px] md:h-[220px] mx-auto md:mx-0 bg-gradient-to-br from-[#E8E4DD] to-[#D8D4CD] rounded-lg grayscale hover:grayscale-0 hover:scale-[1.02] transition-all fade-up" />
+        <div className="relative">
+          <div className="w-[160px] h-[200px] md:w-[180px] md:h-[220px] mx-auto md:mx-0 bg-gradient-to-br from-[#E8E4DD] to-[#D8D4CD] rounded-lg grayscale hover:grayscale-0 hover:scale-[1.02] transition-all fade-up" />
+          {/* Decorative annotation */}
+          <span className="hidden md:block absolute -bottom-4 left-1/2 -translate-x-1/2 font-handwritten text-sm text-primary">
+            let's chat! ↗
+          </span>
+        </div>
 
         <div className="text-center md:text-left fade-up">
           <SectionHeader number="07" label="Contact" />

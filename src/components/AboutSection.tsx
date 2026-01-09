@@ -1,12 +1,22 @@
 import { SectionHeader } from "./SectionHeader";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { Sparkle, StarBurst } from "./decorative/Sparkle";
+import { DottedCircle, SolidDot } from "./decorative/DottedCircle";
 
 export const AboutSection = () => {
   const ref = useScrollAnimation();
 
   return (
-    <section id="about" className="bg-cream py-20 px-6 md:px-16">
-      <div className="max-w-[850px] mx-auto" ref={ref}>
+    <section id="about" className="relative bg-cream py-20 px-6 md:px-16 overflow-hidden">
+      {/* Artistic decorations */}
+      <Sparkle className="top-[10%] right-[8%]" size="lg" />
+      <Sparkle className="bottom-[15%] left-[5%]" size="md" />
+      <StarBurst className="top-[20%] left-[10%] opacity-50" />
+      <DottedCircle className="bottom-[10%] right-[5%]" size="sm" />
+      <SolidDot className="top-[40%] right-[3%]" />
+      <SolidDot className="bottom-[50%] left-[2%]" />
+
+      <div className="max-w-[850px] mx-auto relative" ref={ref}>
         <SectionHeader number="01" label="About" />
 
         <h2 className="font-serif text-2xl md:text-3xl font-normal mb-6 fade-up">
@@ -25,9 +35,13 @@ export const AboutSection = () => {
           shut it down when the narrative started bending.
         </p>
 
-        <div className="bg-primary/5 border-l-[3px] border-primary py-4 px-5 rounded-r-lg my-5 italic text-sm md:text-base text-foreground-light fade-up">
+        <div className="bg-primary/5 border-l-[3px] border-primary py-4 px-5 rounded-r-lg my-5 italic text-sm md:text-base text-foreground-light fade-up relative">
           I care about marketing that's true. Most growth advice optimizes for
           speed. I optimize for belief — the kind that compounds.
+          {/* Decorative annotation */}
+          <span className="hidden md:block absolute -right-4 -top-3 font-handwritten text-primary text-sm rotate-[8deg]">
+            ← this!
+          </span>
         </div>
 
         <p className="text-sm md:text-base text-foreground-light leading-relaxed mb-8 fade-up">
