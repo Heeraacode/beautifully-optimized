@@ -1,5 +1,8 @@
 import { SectionHeader } from "./SectionHeader";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { Sparkle, StarBurst } from "./decorative/Sparkle";
+import { DottedCircle, SolidDot } from "./decorative/DottedCircle";
+import { LoopArrow } from "./decorative/ArrowPath";
 
 const projects = [
   {
@@ -45,8 +48,17 @@ export const ProjectsSection = () => {
   const ref = useScrollAnimation();
 
   return (
-    <section id="projects" className="bg-cream py-20 px-6 md:px-16">
-      <div className="max-w-[950px] mx-auto" ref={ref}>
+    <section id="projects" className="relative bg-cream py-20 px-6 md:px-16 overflow-hidden">
+      {/* Artistic decorations */}
+      <Sparkle className="top-[8%] left-[6%]" size="lg" />
+      <Sparkle className="bottom-[12%] right-[8%]" size="md" />
+      <StarBurst className="top-[15%] right-[12%] opacity-40" />
+      <DottedCircle className="bottom-[8%] left-[3%]" size="sm" />
+      <SolidDot className="top-[35%] right-[4%]" />
+      <SolidDot className="bottom-[40%] left-[6%]" />
+      <LoopArrow className="w-16 h-16 top-[25%] left-[2%] opacity-30" />
+
+      <div className="max-w-[950px] mx-auto relative" ref={ref}>
         <SectionHeader number="03" label="Projects" />
 
         <h2 className="font-serif text-2xl md:text-3xl font-normal mb-6 fade-up">
@@ -54,7 +66,7 @@ export const ProjectsSection = () => {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <div
               key={project.title}
               className="project-card project-card-accent bg-card rounded-xl p-6 relative overflow-hidden hover-lift fade-up hover-target"
@@ -77,6 +89,12 @@ export const ProjectsSection = () => {
               >
                 {project.linkText}
               </a>
+              {/* Decorative annotation on featured project */}
+              {index === 0 && (
+                <span className="hidden md:block absolute top-3 right-4 font-handwritten text-xs text-primary rotate-[5deg]">
+                  favorite ♥
+                </span>
+              )}
             </div>
           ))}
         </div>

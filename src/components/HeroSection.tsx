@@ -1,4 +1,7 @@
 import { ArrowRight } from "lucide-react";
+import { HeroDecorations } from "./decorative/DecorativeElements";
+import { DottedCircle } from "./decorative/DottedCircle";
+import { Sparkle, StarBurst } from "./decorative/Sparkle";
 
 export const HeroSection = () => {
   const scrollToSection = (id: string) => {
@@ -8,7 +11,10 @@ export const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center px-6 md:px-16 pt-20 pb-12 overflow-hidden">
-      {/* Decorative Elements */}
+      {/* Enhanced Decorative Elements */}
+      <HeroDecorations />
+      
+      {/* Original Deco Elements */}
       <div className="deco-circle absolute -top-[8%] -right-[8%] w-[400px] h-[400px] pointer-events-none" />
       <div className="deco-circle absolute bottom-[12%] left-[5%] w-[200px] h-[200px] pointer-events-none" />
       <div className="absolute top-[22%] left-[15%] w-[70px] h-[70px] rounded-full bg-primary/[0.04] pointer-events-none" />
@@ -16,6 +22,11 @@ export const HeroSection = () => {
       <div className="deco-line absolute bottom-[25%] right-[8%] rotate-[35deg] pointer-events-none" />
       <div className="deco-cross absolute top-[15%] right-[18%] w-[14px] h-[14px] opacity-15 animate-spin-slow pointer-events-none" />
       <div className="deco-cross absolute bottom-[30%] left-[12%] w-[14px] h-[14px] opacity-15 animate-spin-slow-reverse pointer-events-none" />
+
+      {/* Extra artistic elements */}
+      <DottedCircle className="top-[8%] left-[30%]" size="sm" />
+      <Sparkle className="top-[45%] right-[30%]" size="lg" />
+      <StarBurst className="bottom-[45%] left-[8%]" />
 
       <div className="max-w-[1100px] mx-auto w-full grid grid-cols-1 md:grid-cols-[1fr_0.7fr] gap-8 md:gap-16 items-center">
         {/* Content */}
