@@ -1,4 +1,3 @@
-diff --git a/src/components/SkillsSection.tsx b/src/components/SkillsSection.tsx
 index 006e3e8a5f1e3d62f16275a030050c75a3ca5d35..5952cbbf54de088264e9082fc7747d070b46a0e3 100644
 --- a/src/components/SkillsSection.tsx
 +++ b/src/components/SkillsSection.tsx
